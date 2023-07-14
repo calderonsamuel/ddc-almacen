@@ -5,22 +5,22 @@
 		<link rel="icon" href="./logo-almacen.svg" />
 		<meta name="viewport" content="width=device-width" />
 		
-		<link rel="modulepreload" href="./_app/immutable/entry/start.3f333a5c.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.7c4769d9.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.613229ca.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/paths.877daa60.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.b2941eab.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.57a26e02.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.4e4f710c.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.e7c577e1.js"><title>Gestión de almacen - DDC</title><!-- HEAD_svelte-7w9sy4_START --><meta name="description" content="Aplicativo para llevar el control de los ingresos al almacén de la DDC-MININTER"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous" data-svelte-h="svelte-o7p46v"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"><!-- HEAD_svelte-7w9sy4_END -->
+		<link rel="modulepreload" href="./_app/immutable/entry/start.7e9f34e7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.0d496a8d.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.57b9cc9b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.f59b60ec.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.d3327b16.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.1cb1e9e5.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.4d4c924f.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.5725c740.js"><title>Gestión de almacen - DDC</title><!-- HEAD_svelte-7w9sy4_START --><meta name="description" content="Aplicativo para llevar el control de los ingresos al almacén de la DDC-MININTER"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous" data-svelte-h="svelte-o7p46v"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"><!-- HEAD_svelte-7w9sy4_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">   <nav class="navbar navbar-expand-lg bg-body-tertiary"><div class="container-fluid"><a class="navbar-brand fs-3" href="/ddc-almacen/"><img src="logo-almacen.svg" alt="logo" width="30px" height="40px">
-        Almacén DDC</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-svelte-h="svelte-jl436q"><span class="navbar-toggler-icon"></span></button> <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="navbar-nav mb-2 mb-lg-0"><li class="nav-item"><a class="nav-link" href="/ddc-almacen/about"><i class="bi bi-info-circle pe-1 fs-5"></i>Info</a></li> <li class="nav-item" data-svelte-h="svelte-fjha3l"><a class="nav-link" href="https://github.com/calderonsamuel/ddc-almacen"><i class="bi bi-github pe-1 fs-5"></i>Repo</a></li></ul></div></div></nav> <h1 data-svelte-h="svelte-yyjjjs">Welcome to SvelteKit</h1> <p data-svelte-h="svelte-jl9sbz">Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p> 
+        Almacén DDC</a> <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" data-svelte-h="svelte-jl436q"><span class="navbar-toggler-icon"></span></button> <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent"><ul class="navbar-nav mb-2 mb-lg-0"><li class="nav-item"><a class="nav-link" href="/ddc-almacen/about"><i class="bi bi-info-circle pe-1 fs-5"></i>Info</a></li> <li class="nav-item" data-svelte-h="svelte-fjha3l"><a class="nav-link" href="https://github.com/calderonsamuel/ddc-almacen"><i class="bi bi-github pe-1 fs-5"></i>Repo</a></li></ul></div></div></nav> <div class="container-fluid"><div class="row"><div class="col-4 p-3 bg-secondary"><div class="row"><div class="col-6"><div class="form-floating mb-3"><input type="number" class="form-control" id="acta" min="0" max="Infinity"  value="0"> <label for="acta" class="w-100">N° de acta</label></div> </div> <div class="col-6"><div class="form-floating mb-3"><input type="number" class="form-control" id="lote" min="0" max="Infinity"  value="0"> <label for="lote" class="w-100">N° de lote</label></div> </div></div> <div class="row"><div class="col-6"><div class="form-floating mb-3"><input type="number" class="form-control" id="peso_recibido" min="0" max="Infinity"  value="0"> <label for="peso_recibido" class="w-100">Peso recibido - kg</label></div> </div> <div class="col-6"><div class="form-floating mb-3"><input type="number" class="form-control" id="peso_bruto" min="0" max="Infinity"  value="0"> <label for="peso_bruto" class="w-100">Peso bruto -kg</label></div> </div></div> <div class="form-floating mb-3"><input type="text" class="form-control" name="observaciones" id="observaciones" placeholder=""  value=""> <label for="observaciones" class="w-100">Observaciones</label></div> <div class="row"><div class="col-6"><div class="form-floating mb-3"><input type="number" class="form-control" id="peso_modificado" min="0" max="Infinity"  value="0"> <label for="peso_modificado" class="w-100">Peso modificado - kg</label></div> </div> <div class="col-6"><div class="form-floating mb-3"><input type="number" class="form-control" id="bolsa" min="0" max="Infinity"  value="0"> <label for="bolsa" class="w-100">N° de bolsa</label></div> </div></div> <button id="" type="button" class="btn btn-primary"><i class="bi bi-save pe-2"></i>Save</button></div> <div class="col-8">0</div></div></div> 
 			
 			<script>
 				{
-					__sveltekit_p3m1bl = {
+					__sveltekit_144cis7 = {
 						assets: "/ddc-almacen",
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
@@ -31,8 +31,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.3f333a5c.js"),
-						import("./_app/immutable/entry/app.b2941eab.js")
+						import("./_app/immutable/entry/start.7e9f34e7.js"),
+						import("./_app/immutable/entry/app.d3327b16.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
