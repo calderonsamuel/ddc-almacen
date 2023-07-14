@@ -5,6 +5,8 @@
     export let className = "btn-primary";
 
     const dispath = createEventDispatcher()
+
+    
 </script>
 
 <button {id} type="button" class="btn {className}">
