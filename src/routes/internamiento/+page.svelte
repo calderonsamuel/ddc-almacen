@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Acta from "../Acta.svelte";
+    import Acta from "./Acta.svelte";
     import InputNumber from "$lib/components/InputNumber.svelte";
     import InputText from "$lib/components/InputText.svelte";
     import InputButton from "$lib/components/InputButton.svelte";
