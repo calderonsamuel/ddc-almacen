@@ -4,14 +4,10 @@
     import InputButton from "$lib/components/InputButton.svelte";
     import Icon from "$lib/components/Icon.svelte";
 	import { fade } from "svelte/transition";
-
-    let acta: number;
-    let bolsaInicial: number;
-    let actaFijada: string;
-
-    const fijarActa = () => {
-        actaFijada = `${acta}`.padStart(2, "0")
-    }
+	import Acta from "./Acta.svelte";
+    import { actaNumero, bolsaInicial } from "$lib/stores/acta";
+	import Lote from "./Lote.svelte";
+	import BolsaForm from "./BolsaForm.svelte";
 
     interface Bolsa {
         bolsa: number,
@@ -25,7 +21,7 @@
     let loteEstaIniciado: boolean;
     let loteActual:Bolsa[] = [];
 
-    $: bolsa = bolsaInicial
+    $: bolsa = $bolsaInicial
     let peso_recibido, peso_bruto, observaciones, peso_modificado;
 
     const iniciarLote = () => {
@@ -58,59 +54,37 @@
 
 <div class="d-flex justify-content-center">
     <div style="max-width: 800px;">
-        {#if typeof actaFijada === "undefined"}
-        <div out:fade>
-            <InputNumber id="acta" label="Indica el número de acta" bind:value={acta} min={0} floatingLabel={false}/>
-            <InputNumber label="Indica el número de bolsa inicial" bind:value={bolsaInicial} min={0} floatingLabel={false}/>
-            <InputButton on:click={fijarActa}>Iniciar acta</InputButton>
-        </div>
-        {:else}
-        <div in:fade>
-            <h2>Acta de internamiento N° {actaFijada}</h2>
-            <InputButton on:click={iniciarLote} className="btn-primary mb-3">Iniciar lote</InputButton>
-            {#each loteActual as item}
-                <div class="d-flex">
-                    <div class="flex-fill">
-                        <InputNumber label="N° de bolsa" disabled value={item.bolsa}/>           
-                    </div>
-                    <div class="flex-fill">
-                        <InputNumber label="Peso recibido - kg" disabled value={item.peso_recibido}/>           
-                    </div>
-                    <div class="flex-fill">
-                        <InputNumber label="Peso bruto -kg" disabled value={item.peso_bruto}/>           
-                    </div>
-                    <div class="flex-fill">
-                        <InputText label="Observaciones" disabled value={item.observaciones}/>
-                    </div>
-                    <div class="flex-fill">
-                        <InputNumber label="Peso modificado - kg" disabled value={item.peso_modificado}/>
-                    </div>
-                    <div class="flex-fill align-self-center">
-                        <InputButton className="btn-danger mb-3 ms-1" on:click={() => eliminarBolsa(item.bolsa)}><Icon name="trash"></Icon></InputButton>
-                    </div>
-                </div>
-            {/each}
+        <Acta/>
+        <Lote />
+        {#each loteActual as item}
             <div class="d-flex">
                 <div class="flex-fill">
-                    <InputNumber id="bolsa" label="N° de bolsa" bind:value={bolsa} disabled/>           
+                    <InputNumber label="N° de bolsa" disabled value={item.bolsa}/>           
                 </div>
                 <div class="flex-fill">
-                    <InputNumber id="peso_recibido" label="Peso recibido - kg" bind:value={peso_recibido} min={0}/>           
+                    <InputNumber label="Peso recibido - kg" disabled value={item.peso_recibido}/>           
                 </div>
                 <div class="flex-fill">
-                    <InputNumber id="peso_bruto" label="Peso bruto -kg" bind:value={peso_bruto} min={0}/>           
+                    <InputNumber label="Peso bruto -kg" disabled value={item.peso_bruto}/>           
                 </div>
                 <div class="flex-fill">
-                    <InputText id="observaciones" label="Observaciones" bind:value={observaciones}/>
+                    <InputText label="Observaciones" disabled value={item.observaciones}/>
                 </div>
                 <div class="flex-fill">
-                    <InputNumber id="peso_modificado" label="Peso modificado - kg" bind:value={peso_modificado} min={0}/>
+                    <InputNumber label="Peso modificado - kg" disabled value={item.peso_modificado}/>
                 </div>
                 <div class="flex-fill align-self-center">
-                    <InputButton className="btn-success mb-3 ms-1" on:click={agregarBolsa}><Icon name="plus"></Icon></InputButton>
+                    <InputButton className="btn-danger mb-3 ms-1" on:click={() => eliminarBolsa(item.bolsa)}><Icon name="trash"></Icon></InputButton>
                 </div>
             </div>
-        </div>
-        {/if}
+        {/each}
+        <BolsaForm 
+            bind:bolsa={bolsa}
+            bind:peso_recibido={peso_recibido}
+            bind:peso_bruto={peso_bruto}
+            bind:observaciones={observaciones}
+            bind:peso_modificado={peso_modificado}
+            on:click={agregarBolsa} 
+        />
     </div>
 </div>
