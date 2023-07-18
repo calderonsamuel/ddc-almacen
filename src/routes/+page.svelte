@@ -10,9 +10,9 @@
         <p>A continuación, elige el proceso que quieres iniciar</p>
 
         <div class="d-flex justify-content-center">
-            <InputButton on:click={() => location.href=base+'/internamiento'}>Internamiento</InputButton>
-            <InputButton on:click={() => location.href=base+'/destruccion'} className="btn-primary mx-2">Destrucción</InputButton>
-            <InputButton>Consultas</InputButton>
+        <a href="{base}/internamiento"><InputButton>Internamiento</InputButton></a>
+        <a href="{base}/destruccion" class="mx-2"><InputButton>Destrucción</InputButton></a>
+        <a href="{base}/consultas"><InputButton>Consultas</InputButton></a>
         </div>
         
     </div>
