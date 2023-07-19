@@ -57,26 +57,11 @@
         <Acta/>
         <Lote />
         {#each loteActual as item}
-            <div class="d-flex">
-                <div class="flex-fill">
-                    <InputNumber label="N° de bolsa" disabled value={item.bolsa}/>           
-                </div>
-                <div class="flex-fill">
-                    <InputNumber label="Peso recibido - kg" disabled value={item.peso_recibido}/>           
-                </div>
-                <div class="flex-fill">
-                    <InputNumber label="Peso bruto -kg" disabled value={item.peso_bruto}/>           
-                </div>
-                <div class="flex-fill">
-                    <InputText label="Observaciones" disabled value={item.observaciones}/>
-                </div>
-                <div class="flex-fill">
-                    <InputNumber label="Peso modificado - kg" disabled value={item.peso_modificado}/>
-                </div>
-                <div class="flex-fill align-self-center">
-                    <InputButton className="btn-danger mb-3 ms-1" on:click={() => eliminarBolsa(item.bolsa)}><Icon name="trash"></Icon></InputButton>
-                </div>
-            </div>
+            <BolsaForm 
+                {...item}
+                disabled
+                on:click={() => eliminarBolsa(item.bolsa)}
+            />
         {/each}
         <BolsaForm 
             bind:bolsa={bolsa}

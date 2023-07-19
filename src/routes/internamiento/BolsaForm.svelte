@@ -9,9 +9,8 @@
     export let peso_bruto: number;
     export let observaciones: string;
     export let peso_modificado: number;
-
     export let disabled = false;
-    
+
 </script>
 
 <div class="d-flex">
