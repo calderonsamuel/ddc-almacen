@@ -21,7 +21,7 @@
     let loteEstaIniciado: boolean;
     let loteActual:Bolsa[] = [];
 
-    $: bolsa = $bolsaInicial
+    $: bolsa = $bolsaInicial + loteActual.length;
     let peso_recibido, peso_bruto, observaciones, peso_modificado;
 
     const iniciarLote = () => {
@@ -39,7 +39,7 @@
 
         loteActual = [...loteActual, bolsaActual]
 
-        bolsa = bolsa + 1
+        bolsa = $bolsaInicial + loteActual.length
         peso_recibido = undefined
         peso_bruto = undefined
         observaciones = undefined
@@ -47,7 +47,12 @@
     }
 
     const eliminarBolsa = (bolsa: number) => {
-        loteActual = loteActual.filter((x) => x.bolsa !== bolsa)
+        loteActual = loteActual
+            .filter((x) => x.bolsa !== bolsa)
+            .map((x, i) => {
+                x.bolsa = $bolsaInicial + i
+                return x
+            })
     }
 
 </script>
