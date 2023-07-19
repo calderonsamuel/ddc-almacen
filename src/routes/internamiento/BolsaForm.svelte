@@ -11,29 +11,29 @@
     export let peso_modificado: number;
     export let disabled = false;
 
+    $: btn_color = disabled ? "btn-danger" : "btn-success"
+    $: iconName = disabled ? "trash" : "plus"
+    $: inputClass = disabled ? "mb-1" : "mb-3"
+
 </script>
 
 <div class="d-flex">
-    <div class="flex-fill">
-        <InputNumber label="N° de bolsa" bind:value={bolsa} disabled/>           
+    <div class="flex-shrink-1">
+        <InputNumber label="N° de bolsa" bind:value={bolsa} disabled {inputClass}/>           
     </div>
-    <div class="flex-fill">
-        <InputNumber label="Peso recibido - kg" bind:value={peso_recibido} min={0} {disabled}/>           
+    <div class="">
+        <InputNumber label="Peso recibido - kg" bind:value={peso_recibido} min={0} {disabled} {inputClass}/>           
     </div>
-    <div class="flex-fill">
-        <InputNumber label="Peso bruto -kg" bind:value={peso_bruto} min={0} {disabled}/>           
+    <div class="">
+        <InputNumber label="Peso bruto -kg" bind:value={peso_bruto} min={0} {disabled} {inputClass}/>           
     </div>
-    <div class="flex-fill">
-        <InputText label="Observaciones" bind:value={observaciones} {disabled}/>
+    <div class="flex-grow-1">
+        <InputText label="Observaciones" bind:value={observaciones} {disabled} {inputClass}/>
     </div>
-    <div class="flex-fill">
-        <InputNumber label="Peso modificado - kg" bind:value={peso_modificado} min={0} {disabled}/>
+    <div class="">
+        <InputNumber label="Peso modificado - kg" bind:value={peso_modificado} min={0} {disabled} {inputClass}/>
     </div>
-    <div class="flex-fill align-self-center">
-        {#if disabled}
-            <InputButton className="btn-danger mb-3 ms-1" on:click><Icon name="trash"></Icon></InputButton>
-        {:else}
-            <InputButton className="btn-success mb-3 ms-1" on:click><Icon name="plus"></Icon></InputButton>
-        {/if}
+    <div class="flex-shrink-1 align-self-center">
+        <InputButton className="{btn_color} mb-3 ms-1" on:click><Icon name={iconName}></Icon></InputButton>
     </div>
 </div>
