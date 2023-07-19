@@ -1,15 +1,29 @@
 <script lang="ts">
     import InputButton from "$lib/components/InputButton.svelte";
 	import InputSelect from "$lib/components/InputSelect.svelte";
+    import BolsaForm from "./BolsaForm.svelte";
     import { actaEstaIniciada } from "$lib/stores/acta";
+
+    interface Bolsa {
+        bolsa: number,
+        peso_recibido: number,
+        peso_bruto: number,
+        observaciones: string,
+        peso_modificado: number
+    }
+    interface Lote {
+        numeroDeLote: number,
+        tipoDeDroga: string,
+        bolsas: Bolsa[]
+    }
 
     let loteNumero = 1;
     let loteEstaIniciado = false;
-    let loteActual = {};
     
-    $: bolsaActual = {
-        
-    }
+
+    let loteActual: Lote;
+    
+    let bolsaActual: Bolsa;
 
     let tiposDeDroga = [
         {value: 0, label: "CC"},
