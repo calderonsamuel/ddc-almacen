@@ -24,7 +24,7 @@
     let loteActual: Lote;
     let bolsaActual: Bolsa;
     
-    let bolsa, peso_recibido, peso_bruto, observaciones, peso_modificado
+    let {bolsa, peso_recibido, peso_bruto, observaciones, peso_modificado}: Bolsa
     $: {
         bolsaActual = {
             bolsa: bolsa,
