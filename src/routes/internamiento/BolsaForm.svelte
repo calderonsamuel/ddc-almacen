@@ -3,13 +3,43 @@
     import InputText from "$lib/components/InputText.svelte";
     import InputButton from "$lib/components/InputButton.svelte";
     import Icon from "$lib/components/Icon.svelte";
+	import { onMount } from "svelte";
 
-    export let bolsa: number;
-    export let peso_recibido: number;
-    export let peso_bruto: number;
-    export let observaciones: string;
-    export let peso_modificado: number;
+    // interface Bolsa {
+    //     bolsa: number,
+    //     peso_recibido: number,
+    //     peso_bruto: number,
+    //     observaciones: string,
+    //     peso_modificado: number
+    // }
+
+    export let peso_recibido: number
+    export let peso_bruto: number
+    export let bolsa: number
+    export let observaciones: string
+    export let peso_modificado: number
+    // export let bolsaData: Bolsa;
     export let disabled = false;
+
+
+    onMount(() => {
+        bolsa = bolsaData.bolsa
+        peso_recibido = bolsaData.peso_recibido
+        peso_bruto = bolsaData.peso_bruto
+        observaciones = bolsaData.observaciones
+        peso_modificado = bolsaData.peso_modificado
+    })
+
+    $: {
+        bolsaData = {
+            bolsa: bolsa,
+            peso_recibido: peso_recibido,
+            peso_bruto: peso_bruto,
+            observaciones: observaciones,
+            peso_modificado: peso_modificado
+        }
+    }
+
 
     $: btn_color = disabled ? "btn-danger" : "btn-success"
     $: iconName = disabled ? "trash" : "plus"

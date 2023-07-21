@@ -61,7 +61,7 @@
     <div style="max-width: 800px;">
         <Acta/>
         <Lote />
-        {#each loteActual as item}
+        <!-- {#each loteActual as item}
             <BolsaForm 
                 {...item}
                 disabled
@@ -75,6 +75,6 @@
             bind:observaciones={observaciones}
             bind:peso_modificado={peso_modificado}
             on:click={agregarBolsa} 
-        />
+        /> -->
     </div>
 </div>
